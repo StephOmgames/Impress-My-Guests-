@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏠 Impress My Guests!</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ WELCOME SCREEN ══ -->
+<div id="screen-welcome" class="screen active">
+  <div class="welcome-card">
+    <h1>🏠 Impress My Guests!</h1>
+    <p class="subtitle">Design your room. Impress the judges. Win the crown!</p>
+    <div class="form-group">
+      <label for="player-name">Your Display Name</label>
+      <input id="player-name" type="text" maxlength="20" placeholder="Enter your name…" autocomplete="off" />
+    </div>
+    <p class="hint">Next: choose your character</p>
+    <button id="btn-to-character" class="btn btn-primary" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ CHARACTER CREATION SCREEN ══ -->
+<div id="screen-character" class="screen">
+  <div class="char-layout">
+    <!-- Preview -->
+    <div class="char-preview-panel">
+      <h2>Your Character</h2>
+      <div class="char-preview" id="char-preview">
+        <div class="char-wrap" id="char-wrap">
+          <div class="char-hair-back" id="char-hair-back"></div>
+          <div class="char-head" id="char-head">
+            <div class="char-eyes">
+              <div class="eye left-eye"><div class="pupil"></div></div>
+              <div class="eye right-eye"><div class="pupil"></div></div>
+            </div>
+            <div class="char-nose"></div>
+            <div class="char-mouth" id="char-mouth"></div>
+          </div>
+          <div class="char-hair-front" id="char-hair-front"></div>
+          <div class="char-shirt" id="char-shirt"></div>
+          <div class="char-bottom" id="char-bottom"></div>
+        </div>
+      </div>
+      <div id="char-name-tag" class="char-name-tag"></div>
+    </div>
+
+    <!-- Options -->
+    <div class="char-options-panel">
+      <h2>Customize</h2>
+
+      <!-- Gender -->
+      <div class="option-group">
+        <label>Gender</label>
+        <div class="btn-row" id="gender-btns">
+          <button class="btn btn-toggle active" data-gender="female">👩 Female</button>
+          <button class="btn btn-toggle" data-gender="male">👨 Male</button>
+        </div>
+      </div>
+
+      <!-- Skin tone -->
+      <div class="option-group">
+        <label>Skin Tone</label>
+        <div class="swatch-row" id="skin-swatches">
+          <div class="swatch active" data-skin="#FFDBB4" style="background:#FFDBB4" title="Light"></div>
+          <div class="swatch" data-skin="#F1C27D" style="background:#F1C27D" title="Medium Light"></div>
+          <div class="swatch" data-skin="#E0AC69" style="background:#E0AC69" title="Medium"></div>
+          <div class="swatch" data-skin="#C68642" style="background:#C68642" title="Medium Dark"></div>
+          <div class="swatch" data-skin="#8D5524" style="background:#8D5524" title="Dark"></div>
+          <div class="swatch" data-skin="#4A2912" style="background:#4A2912" title="Deep"></div>
+        </div>
+      </div>
+
+      <!-- Face -->
+      <div class="option-group">
+        <label>Face Style</label>
+        <div class="btn-row" id="face-btns">
+          <button class="btn btn-toggle active" data-face="1">😊</button>
+          <button class="btn btn-toggle" data-face="2">😄</button>
+          <button class="btn btn-toggle" data-face="3">😌</button>
+          <button class="btn btn-toggle" data-face="4">🙂</button>
+          <button class="btn btn-toggle" data-face="5">😎</button>
+        </div>
+      </div>
+
+      <!-- Hair style -->
+      <div class="option-group">
+        <label>Hair Style</label>
+        <div class="btn-row" id="hair-style-btns">
+          <button class="btn btn-toggle active" data-hairstyle="short">Short</button>
+          <button class="btn btn-toggle" data-hairstyle="medium">Medium</button>
+          <button class="btn btn-toggle" data-hairstyle="long">Long</button>
+          <button class="btn btn-toggle" data-hairstyle="curly">Curly</button>
+          <button class="btn btn-toggle" data-hairstyle="bun">Bun</button>
+          <button class="btn btn-toggle" data-hairstyle="afro">Afro</button>
+        </div>
+      </div>
+
+      <!-- Hair color -->
+      <div class="option-group">
+        <label>Hair Color</label>
+        <div class="swatch-row" id="hair-swatches">
+          <div class="swatch active" data-hair="#1a1a1a" style="background:#1a1a1a" title="Black"></div>
+          <div class="swatch" data-hair="#5c3317" style="background:#5c3317" title="Brown"></div>
+          <div class="swatch" data-hair="#b8860b" style="background:#b8860b" title="Dark Blonde"></div>
+          <div class="swatch" data-hair="#f5deb3" style="background:#f5deb3;border:1px solid #ccc" title="Blonde"></div>
+          <div class="swatch" data-hair="#8b0000" style="background:#8b0000" title="Red"></div>
+          <div class="swatch" data-hair="#808080" style="background:#808080" title="Gray"></div>
+          <div class="swatch" data-hair="#f0f0f0" style="background:#f0f0f0;border:1px solid #ccc" title="White"></div>
+          <div class="swatch" data-hair="#1e3a8a" style="background:#1e3a8a" title="Blue"></div>
+          <div class="swatch" data-hair="#7c3aed" style="background:#7c3aed" title="Purple"></div>
+        </div>
+      </div>
+
+      <!-- Shirt -->
+      <div class="option-group">
+        <label>Top</label>
+        <div class="btn-row" id="shirt-btns">
+          <button class="btn btn-toggle active" data-shirt="tshirt">T-Shirt</button>
+          <button class="btn btn-toggle" data-shirt="blouse">Blouse</button>
+          <button class="btn btn-toggle" data-shirt="buttonup">Button-Up</button>
+          <button class="btn btn-toggle" data-shirt="suit">Suit</button>
+          <button class="btn btn-toggle" data-shirt="sweater">Sweater</button>
+        </div>
+        <div class="swatch-row" id="shirt-swatches">
+          <div class="swatch active" data-shirtcolor="#3b82f6" style="background:#3b82f6"></div>
+          <div class="swatch" data-shirtcolor="#ef4444" style="background:#ef4444"></div>
+          <div class="swatch" data-shirtcolor="#22c55e" style="background:#22c55e"></div>
+          <div class="swatch" data-shirtcolor="#f59e0b" style="background:#f59e0b"></div>
+          <div class="swatch" data-shirtcolor="#8b5cf6" style="background:#8b5cf6"></div>
+          <div class="swatch" data-shirtcolor="#ec4899" style="background:#ec4899"></div>
+          <div class="swatch" data-shirtcolor="#f0f0f0" style="background:#f0f0f0;border:1px solid #ccc"></div>
+          <div class="swatch" data-shirtcolor="#1a1a1a" style="background:#1a1a1a"></div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="option-group" id="bottom-option">
+        <label>Bottom</label>
+        <div class="btn-row" id="bottom-btns">
+          <button class="btn btn-toggle active" data-bottom="trousers">Trousers</button>
+          <button class="btn btn-toggle" data-bottom="skirt">Skirt</button>
+          <button class="btn btn-toggle" data-bottom="dress">Dress</button>
+          <button class="btn btn-toggle" data-bottom="pencilskirt">Pencil Skirt</button>
+        </div>
+        <div class="swatch-row" id="bottom-swatches">
+          <div class="swatch active" data-bottomcolor="#374151" style="background:#374151"></div>
+          <div class="swatch" data-bottomcolor="#1e3a8a" style="background:#1e3a8a"></div>
+          <div class="swatch" data-bottomcolor="#7c3aed" style="background:#7c3aed"></div>
+          <div class="swatch" data-bottomcolor="#dc2626" style="background:#dc2626"></div>
+          <div class="swatch" data-bottomcolor="#065f46" style="background:#065f46"></div>
+          <div class="swatch" data-bottomcolor="#92400e" style="background:#92400e"></div>
+          <div class="swatch" data-bottomcolor="#f0f0f0" style="background:#f0f0f0;border:1px solid #ccc"></div>
+          <div class="swatch" data-bottomcolor="#1a1a1a" style="background:#1a1a1a"></div>
+        </div>
+      </div>
+
+      <button id="btn-to-lobby" class="btn btn-primary">Enter Lobby →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ LOBBY SCREEN ══ -->
+<div id="screen-lobby" class="screen">
+  <div class="lobby-card">
+    <h2>🛋️ Design Lobby</h2>
+    <p id="lobby-status">Waiting for players…</p>
+
+    <div class="lobby-players" id="lobby-players"></div>
+
+    <div class="topic-vote-section">
+      <h3>Vote for Next Challenge Topic</h3>
+      <div class="topic-list" id="topic-list"></div>
+    </div>
+
+    <button id="btn-ready" class="btn btn-primary">✅ I'm Ready!</button>
+    <p class="hint" id="lobby-hint">Need at least 1 other player — bots will join if needed.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ DESIGN SCREEN ══ -->
+<div id="screen-design" class="screen">
+  <div class="design-topbar">
+    <div class="challenge-badge" id="challenge-badge">
+      <span class="challenge-label">🏆 Challenge:</span>
+      <span id="challenge-title">—</span>
+    </div>
+    <div class="design-timer" id="design-timer">3:00</div>
+    <div class="player-list-mini" id="player-list-mini"></div>
+  </div>
+
+  <div class="design-layout">
+    <!-- Furniture palette -->
+    <aside class="furniture-palette" id="furniture-palette">
+      <h3>Furniture</h3>
+      <div class="palette-categories" id="palette-cats"></div>
+      <div class="palette-items" id="palette-items"></div>
+
+      <div class="room-settings">
+        <h3>Room Settings</h3>
+        <label>Wall Color</label>
+        <input type="color" id="wall-color-picker" value="#dce8f5" />
+        <label>Floor Color</label>
+        <input type="color" id="floor-color-picker" value="#c8a87a" />
+      </div>
+
+      <button id="btn-erase" class="btn btn-secondary">🗑️ Erase</button>
+      <button id="btn-submit-room" class="btn btn-primary">Submit Room ✔</button>
+    </aside>
+
+    <!-- Room grid -->
+    <main class="room-area">
+      <div class="room-grid" id="room-grid"></div>
+      <p class="room-hint">Click furniture → Click room cell to place &nbsp;|&nbsp; Erase mode: click placed item to remove</p>
+    </main>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ VIEWING SCREEN ══ -->
+<div id="screen-viewing" class="screen">
+  <div class="viewing-topbar">
+    <div class="challenge-badge">
+      <span class="challenge-label">🏆 Challenge:</span>
+      <span id="viewing-challenge-title">—</span>
+    </div>
+    <div class="viewing-progress" id="viewing-progress">Room 1 of 2</div>
+  </div>
+
+  <div class="viewing-layout">
+    <div class="viewing-room-panel">
+      <div class="viewing-player-info" id="viewing-player-info">
+        <div class="vp-char" id="vp-char"></div>
+        <div class="vp-name" id="vp-name">Player</div>
+      </div>
+      <div class="viewing-room-grid" id="viewing-room-grid"></div>
+    </div>
+
+    <div class="voting-panel">
+      <h3>Rate This Room</h3>
+      <p class="vote-desc">How well does it match the challenge?</p>
+      <div class="star-rating" id="star-rating">
+        <span class="star" data-star="1">★</span>
+        <span class="star" data-star="2">★</span>
+        <span class="star" data-star="3">★</span>
+        <span class="star" data-star="4">★</span>
+        <span class="star" data-star="5">★</span>
+      </div>
+      <p class="star-label" id="star-label">Select a rating</p>
+      <button id="btn-cast-vote" class="btn btn-primary" disabled>Cast Vote ★</button>
+      <div class="all-votes-display" id="all-votes-display"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ RESULTS SCREEN ══ -->
+<div id="screen-results" class="screen">
+  <div class="results-layout">
+    <div class="winner-announcement" id="winner-announcement">
+      <div class="crown">👑</div>
+      <h2>Winner!</h2>
+      <div class="winner-char" id="winner-char"></div>
+      <div class="winner-name" id="winner-name"></div>
+      <div class="winner-score" id="winner-score"></div>
+    </div>
+
+    <div class="winner-room-section">
+      <h3 id="winner-room-title">Winning Room</h3>
+      <div class="winner-room-grid" id="winner-room-grid"></div>
+    </div>
+
+    <div class="scoreboard" id="scoreboard">
+      <h3>Scoreboard</h3>
+      <ol id="score-list"></ol>
+    </div>
+
+    <button id="btn-play-again" class="btn btn-primary">🔄 Play Again</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ TOAST / OVERLAY ══ -->
+<div id="toast" class="toast"></div>
+<div id="overlay" class="overlay hidden"><div class="spinner"></div><p id="overlay-msg">Loading…</p></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
